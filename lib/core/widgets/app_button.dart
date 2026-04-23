@@ -30,26 +30,26 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
           ),
         ),
-        backgroundColor: MaterialStatePropertyAll(
+        backgroundColor: WidgetStatePropertyAll(
           backgroundColor ?? const Color(0xff168AFF),
         ),
-        padding: MaterialStateProperty.all<EdgeInsets>(
+        padding: WidgetStateProperty.all<EdgeInsets>(
           EdgeInsets.symmetric(
             horizontal: horizontalPadding ?? 32,
             vertical: verticalPadding ?? 14,
           ),
         ),
-        fixedSize: MaterialStateProperty.all(
+        fixedSize: WidgetStatePropertyAll(
           Size(width ?? 300, height ?? 70),
         ),
-        overlayColor: MaterialStateProperty.resolveWith<Color?>(
+        overlayColor: WidgetStateProperty.resolveWith<Color?>(
           (states) {
-            if (states.contains(MaterialState.pressed)) {
+            if (states.contains(WidgetState.pressed)) {
               return backgroundColor ??
                   const Color(
                       0xff168AFF); // Change to desired splash color or keep transparent
