@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:chat_app_with_pusher/core/helpers/pusher_config.dart';
 import 'package:chat_app_with_pusher/features/chat/data/models/chat_details_model.dart';
+import 'package:chat_app_with_pusher/features/chat/presentation/views/widgets/message_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
