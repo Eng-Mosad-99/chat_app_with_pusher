@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names
 import 'dart:developer';
 import 'dart:io';
+import 'package:chat_app_with_pusher/features/chat/data/models/chat_details_model.dart';
+import 'package:chat_app_with_pusher/features/chat/data/repo/chat_repo.dart';
 import 'package:chat_app_with_pusher/features/chat/presentation/cubit/chat_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

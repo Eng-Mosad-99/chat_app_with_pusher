@@ -1,0 +1,47 @@
+import 'dart:developer';
+import 'dart:io';
+import 'package:chat_app_with_pusher/core/api/dio_helper.dart';
+import 'package:chat_app_with_pusher/core/api/end_points.dart';
+import 'package:chat_app_with_pusher/features/chat/data/models/chat_details_model.dart';
+import 'package:dio/dio.dart';
+
+
+class ChatRepo {
+  static Future<ChatDetailsModel> getChatDetails(
+      {required int? firstUser, required int? secondUser}) async {
+    var res = await DioHelper.postData(
+        url: ApiEndPoints.provideRoom,
+        data: {"first_user": firstUser, "second_user": secondUser});
+    ChatDetailsModel chatDetailsModel = chatDetailsModelFromJson(res.data);
+    return chatDetailsModel;
+  }
+
+  static sendMessage(
+      {File? file,
+      String? content,
+      required int roomId,
+      required int? userId,
+      String type = "TEXT"}) async {
+    Map<String, dynamic> data = {"user_id": userId, "type": type};
+
+    FormData formData = FormData.fromMap(data);
+
+    log(formData.fields.toString());
+
+    if (content != null) {
+      formData.fields.add(MapEntry("content", content));
+    }
+    if (file != null) {
+      formData.files.add(
+        MapEntry(
+            "file",
+            await MultipartFile.fromFile(file.path,
+                filename: file.path.split('/').last)),
+      );
+    }
+
+    await DioHelper.postData(
+        url: "${ApiEndPoints.rooms}/$roomId${ApiEndPoints.send}",
+        data: formData);
+  }
+}
