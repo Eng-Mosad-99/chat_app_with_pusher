@@ -10,6 +10,7 @@ import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 import '../../../../core/helpers/navigator_utils.dart';
 import '../cubit/chat_cubit.dart';
 import '../cubit/chat_state.dart';
+import 'widgets/error_alert_widget.dart';
 
 
 class ChatView extends StatefulWidget {

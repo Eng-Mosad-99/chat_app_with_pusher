@@ -1,6 +1,10 @@
 import 'package:chat_app_with_pusher/core/api/dio_helper.dart';
+import 'package:chat_app_with_pusher/core/helpers/navigator_utils.dart';
+import 'package:chat_app_with_pusher/features/chat/presentation/cubit/chat_cubit.dart';
+import 'package:chat_app_with_pusher/features/chat/presentation/views/chat_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'core/widgets/app_button.dart';
 
 void main() {
   DioHelper.init();
@@ -70,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         context,
                         BlocProvider(
                             create: (context) => ChatCubit(),
-                            child: const ChatScreen()));
+                            child: const ChatView()));
                   })
             ],
           ),
