@@ -1,4 +1,6 @@
 
+import 'package:chat_app_with_pusher/features/chat/data/models/chat_details_model.dart';
+
 enum ChatStates { initial, loading, success, failure }
 
 enum SendMessagesStates { initial, loading, success, failure }
